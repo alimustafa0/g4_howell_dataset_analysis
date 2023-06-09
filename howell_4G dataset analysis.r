@@ -44,3 +44,8 @@ ggplot(new_df, aes(height)) + geom_histogram()
 cat('----------------------------------------------------------------------\n')
 #Is there any relationship between sex and weight or height in the dataset?
 print(aggregate(cbind(weight, height) ~ sex, data = new_df, mean))
+draw = ggplot(new_df, aes(x=weight, y=height)) + geom_point() + facet_wrap(~sex) + stat_smooth(se=FALSE)
+draw
+#Is there any relationship between sex and weight or height in the dataset?
+draw2 = ggplot(new_df, aes(x=weight, y=height)) + geom_point() + stat_smooth(se=FALSE)
+draw2
